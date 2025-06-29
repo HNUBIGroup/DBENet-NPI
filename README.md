@@ -1,6 +1,6 @@
 *DBENet-NPI*
 --------------------------------------------------------------------------------
-Predicting ncRNA-protein interactions based on multi-perspective information and dual-branch encoder network
+Predicting ncRNA-protein interactions based on multi-perspective information and dual-branch encoder network.
 
 *Usage*
 --------------------------------------------------------------------------------
