@@ -10,7 +10,7 @@ Predicting ncRNA-protein interactions based on multi-perspective information and
 *Note*
 --------------------------------------------------------------------------------
 - data project 
-  - This project contains the raw sequences and the processed data of datasets used in this study. (RPI488, RPI1807, NPInter, RPI7317, RPI1847)
+  - This project contains the raw sequences and the processed data of datasets used in this study.
   - sample project contains three coding methods including sequential information, interval information, and physicochemical property coding method.
   - sample.py is the file used to generate the sample.txt file.
 
