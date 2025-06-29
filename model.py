@@ -47,7 +47,7 @@ class DBENet_NPI(nn.Module):
     def forward(self, x):
 
         # multi-perspective information
-        protein_feature, rna_feature = x[:, :829], x[:, 829:]
+        protein_feature, rna_feature = x[:, :829], x[:, 829:] 
 
         # interactive feature encoder (MCANet)
         interactive_pro1, interactive_rna1 = self.interactive_attention1(protein_feature, rna_feature)
