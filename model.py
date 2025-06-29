@@ -13,7 +13,6 @@ class DNN(nn.Module):
         self.dropout = nn.Dropout(0.5)
 
         self.hidden_units = [inputs_dim] + list(self.hidden_units)
-        # 创建一系列的线性变换层（全连接层）
         self.linear = nn.ModuleList([
             nn.Linear(self.hidden_units[i], self.hidden_units[i + 1]) for i in range(len(self.hidden_units) - 1)
         ])
