@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import torch.nn as nn
 
-warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore") 
 
 batch_size = 1024
 random_state = 123
