@@ -71,7 +71,6 @@ class CrossTransformerEncoder(nn.Module):
 
     def forward(self, protein_features, rna_features):
 
-        # 对齐蛋白质和RNA的特征维度
         protein_features_aligned = F.relu(self.protein_to_rna_fc(protein_features))
         rna_features_aligned = F.relu(self.rna_to_protein_fc(rna_features))
 
