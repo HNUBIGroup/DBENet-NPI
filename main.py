@@ -1,4 +1,3 @@
-
 from model import *
 from metric import *
 from torch.utils.data import DataLoader, TensorDataset
@@ -83,13 +82,3 @@ for fold, (train_index, test_index) in enumerate(kf.split(data)):
 
         test_loss = total_test_loss_epoch / total_test_tmp
         test_auc, test_rec, test_pre, test_f1, test_acc, test_spe, test_mcc = get_result(test_loader, model)
-
-        print(
-            'Fold {}/{}, epoch/epochs: {}/{}, train_loss: {:.3f}, '
-            'train_auc: {:.3f}, train_rec: {:.3f}, train_pre: {:.3f}, train_f1: {:.3f}, '
-            'train_acc: {:.3f}, train_spe: {:.3f}, train_mcc: {:.3f}, '
-            'test_auc: {:.3f}, test_rec: {:.3f}, test_pre: {:.3f}, test_f1: {:.3f}, '
-            'test_acc: {:.3f}, test_spe: {:.3f}, test_mcc: {:.3f}'
-            .format(fold, k_folds, epoch, epochs, train_loss,
-                    train_auc, train_rec, train_pre, train_f1, train_acc, train_spe, train_mcc,
-                    test_auc, test_rec, test_pre, test_f1, test_acc, test_spe, test_mcc))
