@@ -43,7 +43,6 @@ def get_result(loader, model):
 
 
 def get_result1(y_hat, y):
-    # 将张量转换为 NumPy 数组
     y_hat_np = y_hat.cpu().detach().numpy()
     y_np = y.cpu().detach().numpy()
 
