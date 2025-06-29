@@ -15,7 +15,7 @@ Predicting ncRNA-protein interactions based on multi-perspective information and
   - sample.py is the file used to generate the sample.txt file.
 
 - DBENet-NPI
-  - The code of multi-perspective information representation is in the data project.
+  - The code of multi-perspective information representation is in the data project. 
   - The codes of dual-branch encoder network and prediction model are in the model.py file.
     - The code of MCANet is in the interactive.py file.
     - The code of HMCNet is in the independent.py file. 
