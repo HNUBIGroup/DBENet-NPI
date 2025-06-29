@@ -10,7 +10,6 @@ import torch.nn as nn
 
 warnings.filterwarnings("ignore")
 
-# 定义数据集和其他参数
 batch_size = 1024
 random_state = 123
 DATA_SET = 'RPI1807'
@@ -25,14 +24,11 @@ rna_size = len(rna_feature)
 k_folds = 5
 kf = KFold(n_splits=k_folds, shuffle=True, random_state=random_state)
 
-# 遍历每个折
 for fold, (train_index, test_index) in enumerate(kf.split(data)):
     print(f"Fold {fold + 1}/{k_folds}")
 
-    # 分割数据集
     train_data, test_data = data.iloc[train_index], data.iloc[test_index]
 
-    # 准备训练集和验证集的数据加载器
     train_label = pd.DataFrame(train_data['label'])
     train_data = train_data.drop(columns=['label'])
     train_tensor_data = TensorDataset(torch.from_numpy(np.array(train_data)), torch.from_numpy(np.array(train_label)))
@@ -67,14 +63,11 @@ for fold, (train_index, test_index) in enumerate(kf.split(data)):
             total_loss_epoch += loss.item()
             total_train_tmp += 1
 
-        # 计算训练集损失
         train_loss = total_loss_epoch / total_train_tmp
         train_auc, train_rec, train_pre, train_f1, train_acc, train_spe, train_mcc = get_result(train_loader, model)
 
-        # 切换到评估模式
         model.eval()
 
-        # 测试集部分
         with torch.no_grad():
             true_labels = []
             pred_probs = []
@@ -88,11 +81,9 @@ for fold, (train_index, test_index) in enumerate(kf.split(data)):
                 total_test_loss_epoch += test_loss.item()
                 total_test_tmp += 1
 
-        # 计算测试集损失
         test_loss = total_test_loss_epoch / total_test_tmp
         test_auc, test_rec, test_pre, test_f1, test_acc, test_spe, test_mcc = get_result(test_loader, model)
 
-        # 打印结果
         print(
             'Fold {}/{}, epoch/epochs: {}/{}, train_loss: {:.3f}, '
             'train_auc: {:.3f}, train_rec: {:.3f}, train_pre: {:.3f}, train_f1: {:.3f}, '
