@@ -1,8 +1,5 @@
-
 from interactive import *
 from independent import *
-
-"""CrossAttention(num_head=4)+multiscale+DNN"""
 
 
 class DNN(nn.Module):
